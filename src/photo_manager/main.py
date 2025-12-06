@@ -1,6 +1,6 @@
 
 
-
+from tqdm import tqdm
 import shutil
 import sys 
 import os
@@ -87,7 +87,7 @@ def organize_files(directory, log_file, detailed_log_file, dry_run=False):
     moved_count = 0
     removed_count = 0
     
-    for folder in list_directory:
+    for folder in tqdm(list_directory, desc="Processing") :
         src_folder = os.path.join(directory, folder)
         
         if not os.path.isdir(src_folder):
@@ -128,8 +128,6 @@ def organize_files(directory, log_file, detailed_log_file, dry_run=False):
                     print(f"Code would move '{source}' > '{destination}'")
                 else:
                     shutil.move(source, destination)
-                    
-                    
                     moved_count += 1
                     detailed_log = f"{today} | Moved | {source} > {destination}\n"
                     with open(detailed_log_file, "a") as file:
