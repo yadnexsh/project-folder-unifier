@@ -83,9 +83,9 @@ def unique_subfolder(main_folder, sub):
 def organize_files(directory, log_file, detailed_log_file, dry_run=False):
     
     list_directory = os.listdir(directory)
-    # created_count = 0
-    # moved_count = 0
-    # removed_count = 0
+    created_count = 0
+    moved_count = 0
+    removed_count = 0
     
     for folder in list_directory:
         src_folder = os.path.join(directory, folder)
@@ -110,13 +110,13 @@ def organize_files(directory, log_file, detailed_log_file, dry_run=False):
                 
                 created_count += 1
                 
-                # log = f"{today} | Created {main} > {sub}\n"
-                # with open(log_file, "a") as file:
-                #     file.write(log)
+                log = f"{today} | Created {main} > {sub}\n"
+                with open(log_file, "a") as file:
+                    file.write(log)
                     
-                # detailed_log = f"{today} | Created | {main_folder} > {sub_folder}\n"
-                # with open(detailed_log_file, "a") as file:
-                #     file.write(detailed_log)
+                detailed_log = f"{today} | Created | {main_folder} > {sub_folder}\n"
+                with open(detailed_log_file, "a") as file:
+                    file.write(detailed_log)
             
             list_src_folder = os.listdir(src_folder)
             for item in list_src_folder :         # fetching item inside the folder to move
@@ -131,9 +131,9 @@ def organize_files(directory, log_file, detailed_log_file, dry_run=False):
                     
                     
                     moved_count += 1
-                    # detailed_log = f"{today} | Moved | {source} > {destination}\n"
-                    # with open(detailed_log_file, "a") as file:
-                    #     file.write(detailed_log)
+                    detailed_log = f"{today} | Moved | {source} > {destination}\n"
+                    with open(detailed_log_file, "a") as file:
+                        file.write(detailed_log)
 
             if dry_run:
                 print(f"Code Would remove folder > {src_folder}")
@@ -142,13 +142,13 @@ def organize_files(directory, log_file, detailed_log_file, dry_run=False):
                 
                 removed_count += 1
                 
-                # log = f"{today} | Removed > {folder}\n"
-                # with open(log_file, "a") as file:
-                #     file.write(log)
+                log = f"{today} | Removed > {folder}\n"
+                with open(log_file, "a") as file:
+                    file.write(log)
                     
-                # detailed_log = f"{today} | Removed > {src_folder}\n"
-                # with open(detailed_log_file, "a") as file:
-                #     file.write(detailed_log)
+                detailed_log = f"{today} | Removed > {src_folder}\n"
+                with open(detailed_log_file, "a") as file:
+                    file.write(detailed_log)
                     
             print(f"{folder} > {sub_folder}")
             
@@ -156,11 +156,11 @@ def organize_files(directory, log_file, detailed_log_file, dry_run=False):
         else:
             print(f"{folder} | Not Required")
             
-    # print("\nSUMMARY REPORT")
-    # print("----------------------")
-    # print(f"Folders Created : {created_count}")
-    # print(f"Files Moved     : {moved_count}")
-    # print(f"Folders Removed : {removed_count}")
+    print("\nSUMMARY REPORT")
+    print("----------------------")
+    print(f"Folders Created : {created_count}")
+    print(f"Files Moved     : {moved_count}")
+    print(f"Folders Removed : {removed_count}")
 
 def main():
     
