@@ -60,7 +60,12 @@ LOGGING:
     
 
 def list_files(directory):
-    
+    """
+    List all files and folders in the given directory.
+    Args: directory (str): Path to the directory to list.
+    Raises: SystemExit: If the provided directory does not exist.
+    Prints: The full path of each file and folder inside the directory.
+    """
     if not os.path.exists(directory):
         print(Fore.RED + f"'{directory}' not found.")
         sys.exit(0)
@@ -71,16 +76,23 @@ def list_files(directory):
         
 
 def unique_subfolder(main_folder, sub):
-
+    """
+    Generate a unique subfolder path inside main_folder by appending a counter.
+    Args: main_folder (str): Path to the parent folder.
+    sub (str): Base subfolder name.
+    Returns: str: Full path to a unique subfolder inside main_folder.
+    """
     counter = 1
     while True:
         unique_name = f"{sub}{counter}"
-        unique = os.path.join(main_folder, unique_name)         # adds number to subfolder
+        unique = os.path.join(main_folder, unique_name)
         if not os.path.exists(unique):
             return unique
         counter += 1
+
+
     
-def organize_files(directory, log_file, detailed_log_file, dry_run=False):
+def organize_files(directory, log_file, verbose_log_file, dry_run=False):
     
     list_directory = os.listdir(directory)
     created_count = 0
@@ -97,7 +109,7 @@ def organize_files(directory, log_file, detailed_log_file, dry_run=False):
 
         if len(split) == 2:
             main = split[0].strip()
-            sub = split[1].strip()                                      # to remve space
+            sub = split[1].strip()                                      # to remove space
             
             main_folder = os.path.join(directory, main)
             sub_folder = unique_subfolder(main_folder, sub)
@@ -111,12 +123,10 @@ def organize_files(directory, log_file, detailed_log_file, dry_run=False):
                 created_count += 1
                 
                 log = f"{today} | Created {main} > {sub}\n"
-                with open(log_file, "a") as file:
-                    file.write(log)
+                logs(log_file, log)
                     
-                detailed_log = f"{today} | Created | {main_folder} > {sub_folder}\n"
-                with open(detailed_log_file, "a") as file:
-                    file.write(detailed_log)
+                verbose_log = f"{today} | Created | {main_folder} > {sub_folder}\n"
+                verbose(verbose_log_file,verbose_log)
             
             list_src_folder = os.listdir(src_folder)
             for item in list_src_folder :         # fetching item inside the folder to move
@@ -129,9 +139,9 @@ def organize_files(directory, log_file, detailed_log_file, dry_run=False):
                 else:
                     shutil.move(source, destination)
                     moved_count += 1
-                    detailed_log = f"{today} | Moved | {source} > {destination}\n"
-                    with open(detailed_log_file, "a") as file:
-                        file.write(detailed_log)
+                    verbose_log = f"{today} | Moved | {source} > {destination}\n"
+                    with open(verbose_log_file, "a") as file:
+                        file.write(verbose_log)
 
             if dry_run:
                 print(f"Code Would remove folder > {src_folder}")
@@ -144,9 +154,9 @@ def organize_files(directory, log_file, detailed_log_file, dry_run=False):
                 with open(log_file, "a") as file:
                     file.write(log)
                     
-                detailed_log = f"{today} | Removed > {src_folder}\n"
-                with open(detailed_log_file, "a") as file:
-                    file.write(detailed_log)
+                verbose_log = f"{today} | Removed > {src_folder}\n"
+                with open(verbose_log_file, "a") as file:
+                    file.write(verbose_log)
                     
             print(f"{folder} > {sub_folder}")
             
@@ -159,7 +169,18 @@ def organize_files(directory, log_file, detailed_log_file, dry_run=False):
     print(f"Folders Created : {created_count}")
     print(f"Files Moved     : {moved_count}")
     print(f"Folders Removed : {removed_count}")
+    
+    return log, verbose_log
 
+def logs(log_file, log):
+    with open(log_file, "a") as file:
+        file.write(log)
+        
+def verbose(verbose_log_file,verbose_log):
+
+    with open(verbose_log_file, "a") as file:
+        file.write(verbose_log)
+        
 def main():
     
     if len(sys.argv) < 2:                                       
@@ -171,7 +192,7 @@ def main():
     directory = os.path.abspath(sys.argv[1])
     flags = sys.argv[2:]
     log_file = os.path.join(directory , "log.txt")
-    detailed_log_file = os.path.join(directory , "detailed_log.txt")
+    verbose_log_file = os.path.join(directory , "verbose_log.txt")
     valid_flags = ["--help", "--ls", "--dry-run", "--organize"]
 
 
@@ -203,7 +224,7 @@ def main():
     
     if "--organize" in flags:
         dry_run = "--dry-run" in flags
-        organize_files(directory, log_file, detailed_log_file, dry_run=dry_run)
+        organize_files(directory, log_file, verbose_log_file, dry_run=dry_run)
         sys.exit(0)
 
 

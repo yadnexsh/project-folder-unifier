@@ -1,0 +1,10 @@
+2026-02-23 | Created | H:\Gamut\Projects\project-photo-manager\test_folder\2T > H:\Gamut\Projects\project-photo-manager\test_folder\2T\Or1
+2026-02-23 | Removed > H:\Gamut\Projects\project-photo-manager\test_folder\2T-Or
+2026-02-23 | Created | H:\Gamut\Projects\project-photo-manager\test_folder\C9 > H:\Gamut\Projects\project-photo-manager\test_folder\C9\ms1
+2026-02-23 | Removed > H:\Gamut\Projects\project-photo-manager\test_folder\C9-ms
+2026-02-23 | Created | H:\Gamut\Projects\project-photo-manager\test_folder\Jn > H:\Gamut\Projects\project-photo-manager\test_folder\Jn\Rn1
+2026-02-23 | Removed > H:\Gamut\Projects\project-photo-manager\test_folder\Jn-Rn
+2026-02-23 | Created | H:\Gamut\Projects\project-photo-manager\test_folder\KT > H:\Gamut\Projects\project-photo-manager\test_folder\KT\cR1
+2026-02-23 | Removed > H:\Gamut\Projects\project-photo-manager\test_folder\KT-cR
+2026-02-23 | Created | H:\Gamut\Projects\project-photo-manager\test_folder\lQ > H:\Gamut\Projects\project-photo-manager\test_folder\lQ\vv1
+2026-02-23 | Removed > H:\Gamut\Projects\project-photo-manager\test_folder\lQ-vv
