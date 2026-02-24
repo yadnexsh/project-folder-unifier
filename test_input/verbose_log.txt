@@ -1,0 +1,15 @@
+
+2026-02-24 Input Folder : H:\Gamut\Projects\project-photo-manager\test_input\x
+2026-02-24 06:01:17 | CREATED | H:\Gamut\Projects\project-photo-manager\test_input\x > H:\Gamut\Projects\project-photo-manager\test_input\x\cam1
+2026-02-24 06:01:17 | MOVED | H:\Gamut\Projects\project-photo-manager\test_input\x - cam\1st.txt > H:\Gamut\Projects\project-photo-manager\test_input\x\cam1\1st.txt
+2026-02-24 06:01:17 | REMOVED > H:\Gamut\Projects\project-photo-manager\test_input\x - cam
+
+2026-02-24 Input Folder : H:\Gamut\Projects\project-photo-manager\test_input\y
+2026-02-24 06:01:17 | CREATED | H:\Gamut\Projects\project-photo-manager\test_input\y > H:\Gamut\Projects\project-photo-manager\test_input\y\cam1
+2026-02-24 06:01:17 | MOVED | H:\Gamut\Projects\project-photo-manager\test_input\y - cam\2nd.txt > H:\Gamut\Projects\project-photo-manager\test_input\y\cam1\2nd.txt
+2026-02-24 06:01:17 | REMOVED > H:\Gamut\Projects\project-photo-manager\test_input\y - cam
+
+2026-02-24 Input Folder : H:\Gamut\Projects\project-photo-manager\test_input\y
+2026-02-24 06:01:17 | CREATED | H:\Gamut\Projects\project-photo-manager\test_input\y > H:\Gamut\Projects\project-photo-manager\test_input\y\cam2
+2026-02-24 06:01:17 | MOVED | H:\Gamut\Projects\project-photo-manager\test_input\y- cam\3rd.txt > H:\Gamut\Projects\project-photo-manager\test_input\y\cam2\3rd.txt
+2026-02-24 06:01:17 | REMOVED > H:\Gamut\Projects\project-photo-manager\test_input\y- cam
